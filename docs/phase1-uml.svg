@@ -9,7 +9,7 @@
   </style>
   <rect width="1120" height="1010" fill="white"/>
   <text x="20" y="30" font-size="22" font-weight="bold">MiniComputer Phase 1 UML</text>
-  <path class="line" stroke-dasharray="5 4" d="M560 231 V318"/>
+  <path class="line" stroke-dasharray="5 4" d="M560 212 V318"/>
   <path class="line" d="M554 308 L560 318 L566 308"/>
   <text class="label" x="572" y="287">creates and uses</text>
   <path class="line" d="M410 641 V666 H201 V719 M560 641 V719 M710 641 V666 H919 V719"/>
@@ -21,7 +21,7 @@
   <text class="label" x="571" y="708">1</text>
   <text class="label" x="930" y="708">1</text>
   <g transform="translate(318 54)">
-    <rect class="box" width="484" height="177"/>
+    <rect class="box" width="484" height="158"/>
     <rect x="1" y="1" width="482" height="31" fill="#eef1f4"/>
     <text class="name" x="242" y="22">Main</text>
     <path class="line" d="M0 32 H484"/>
@@ -29,21 +29,20 @@
     <text class="member" x="12" y="71">- createComputer(input : Scanner) : Computer</text>
     <text class="member" x="12" y="90">- runMenu(input : Scanner, computer : Computer) : void</text>
     <text class="member" x="12" y="109">- printMenu() : void</text>
-    <text class="member" x="12" y="128">- readLine(input : Scanner, prompt : String) : String</text>
-    <text class="member" x="12" y="147">- readName(input : Scanner, prompt : String) : String</text>
-    <text class="member" x="12" y="166">- readAmount(input : Scanner, prompt : String) : int</text>
+    <text class="member" x="12" y="128">- readName(input : Scanner, prompt : String) : String</text>
+    <text class="member" x="12" y="147">- readNumber(input : Scanner, prompt : String, minimum : int) : int</text>
   </g>
-  <g transform="translate(318 318)">
-    <rect class="box" width="484" height="303"/>
-    <rect x="1" y="1" width="482" height="31" fill="#eef1f4"/>
-    <text class="name" x="242" y="22">Computer</text>
-    <path class="line" d="M0 32 H484 M0 139 H484"/>
+  <g transform="translate(144 318)">
+    <rect class="box" width="832" height="303"/>
+    <rect x="1" y="1" width="830" height="31" fill="#eef1f4"/>
+    <text class="name" x="416" y="22">Computer</text>
+    <path class="line" d="M0 32 H832 M0 139 H832"/>
     <text class="member" x="12" y="52">- name : String</text>
     <text class="member" x="12" y="71">- cpu : CPU</text>
     <text class="member" x="12" y="90">- ram : RAM</text>
     <text class="member" x="12" y="109">- storage : Storage</text>
     <text class="member" x="12" y="128">- poweredOn : boolean</text>
-    <text class="member" x="12" y="159">+ Computer(name : String, cpu : CPU, ram : RAM, storage : Storage)</text>
+    <text class="member" x="12" y="159">+ Computer(name : String, cpuModel : String, cores : int, clockMHz : int, ramMB : int, storageName : String, storageGB : int)</text>
     <text class="member" x="12" y="178">+ powerOn() : boolean</text>
     <text class="member" x="12" y="197">+ shutDown() : boolean</text>
     <text class="member" x="12" y="216">+ isPoweredOn() : boolean</text>
