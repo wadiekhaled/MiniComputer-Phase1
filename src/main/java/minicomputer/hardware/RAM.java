@@ -6,7 +6,7 @@ public class RAM {
 
     public RAM(int totalMB) {
         if (totalMB <= 0) {
-            throw new IllegalArgumentException("RAM capacity must be positive.");
+            totalMB = 1;
         }
         this.totalMB = totalMB;
     }

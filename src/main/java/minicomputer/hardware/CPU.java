@@ -8,10 +8,16 @@ public class CPU {
     private int programCounter;
 
     public CPU(String model, int cores, int clockMHz) {
-        if (model == null || model.isBlank() || cores <= 0 || clockMHz <= 0) {
-            throw new IllegalArgumentException("Enter a CPU model, positive core count and positive clock speed.");
+        if (model == null || model.trim().equals("")) {
+            model = "CPU";
         }
-        this.model = model.trim();
+        if (cores <= 0) {
+            cores = 1;
+        }
+        if (clockMHz <= 0) {
+            clockMHz = 1;
+        }
+        this.model = model;
         this.cores = cores;
         this.clockMHz = clockMHz;
         resetRegisters();

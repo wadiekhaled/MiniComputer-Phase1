@@ -7,14 +7,15 @@ public class Computer {
     private final Storage storage;
     private boolean poweredOn;
 
-    public Computer(String name, CPU cpu, RAM ram, Storage storage) {
-        if (name == null || name.isBlank() || cpu == null || ram == null || storage == null) {
-            throw new IllegalArgumentException("A computer needs a name, CPU, RAM and storage.");
+    public Computer(String name, String cpuModel, int cores, int clockMHz,
+            int ramMB, String storageName, int storageGB) {
+        if (name == null || name.trim().equals("")) {
+            name = "Computer";
         }
-        this.name = name.trim();
-        this.cpu = cpu;
-        this.ram = ram;
-        this.storage = storage;
+        this.name = name;
+        this.cpu = new CPU(cpuModel, cores, clockMHz);
+        this.ram = new RAM(ramMB);
+        this.storage = new Storage(storageName, storageGB);
     }
 
     public boolean powerOn() {
@@ -51,9 +52,13 @@ public class Computer {
     }
 
     public String getSpecifications() {
-        return "Computer: " + name + " (" + (poweredOn ? "ON" : "OFF") + ")"
-                + System.lineSeparator() + cpu.getSpecifications()
-                + System.lineSeparator() + "RAM: " + ram.getTotalMB() + " MB total"
-                + System.lineSeparator() + storage.getSpecifications();
+        String status = "OFF";
+        if (poweredOn) {
+            status = "ON";
+        }
+        return "Computer: " + name + " (" + status + ")\n"
+                + cpu.getSpecifications() + "\n"
+                + "RAM: " + ram.getTotalMB() + " MB total\n"
+                + storage.getSpecifications();
     }
 }

@@ -6,10 +6,13 @@ public class Storage {
     private int usedGB;
 
     public Storage(String name, int totalGB) {
-        if (name == null || name.isBlank() || totalGB <= 0) {
-            throw new IllegalArgumentException("Enter a storage name and positive capacity.");
+        if (name == null || name.trim().equals("")) {
+            name = "Storage";
         }
-        this.name = name.trim();
+        if (totalGB <= 0) {
+            totalGB = 1;
+        }
+        this.name = name;
         this.totalGB = totalGB;
     }
 
